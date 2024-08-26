@@ -1,3 +1,4 @@
+User and Group Management:
 <---Create three users: devops_user1, devops_user2, and devops_user3--->
 sudo useradd devops_user1
 [sudo] password for root: ENTER ROOT's PASSWORD
@@ -14,3 +15,27 @@ sudo usermod -a -G devops_group devops_user1
 <---Ensure that devops_user1 has sudo privileges--->
 sudo usermod -a -G sudo devops_user1
 groups devops_user1
+OUTPUT : devops_user1 : devops_user1 sudo devops_group
+
+File Permissions:
+<---Create a directory /opt/devops_data--->
+sudo mkdir /opt/devops_data
+[sudo] password for root: ENTER ROOT's PASSWORD
+
+<----Create a file called project.txt inside /opt/devops_data and set the following
+permissions:
+• The owner should have read and write permissions.
+• The group should have read permissions.
+• Others should have no permissions--->
+
+cd /opt/devops_data/
+sudo touch project.txt
+sudo chmod 540 project.txt 
+
+<---Ensure that only devops_group members can read the project.txt file--->
+sudo chgrp devops_group project.txt
+ls -la
+OUTPUT : -r-xr----- 1 root devops_group    0 Ogos 27 00:12 project.txt
+
+Process Management:
+<---Write a bash script process_monitor.sh that checks if a process (e.g., nginx) is running--->
