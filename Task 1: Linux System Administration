@@ -1,0 +1,16 @@
+<---Create three users: devops_user1, devops_user2, and devops_user3--->
+sudo useradd devops_user1
+[sudo] password for root: ENTER ROOT's PASSWORD
+sudo useradd devops_user2
+sudo useradd devops_user3
+
+<---Create a group called devops_group--->
+sudo groupadd devops_group
+
+<---Add devops_user1 and devops_user2 to devops_group--->
+sudo usermod -a -G devops_group devops_user1
+sudo usermod -a -G devops_group devops_user1
+
+<---Ensure that devops_user1 has sudo privileges--->
+sudo usermod -a -G sudo devops_user1
+groups devops_user1
