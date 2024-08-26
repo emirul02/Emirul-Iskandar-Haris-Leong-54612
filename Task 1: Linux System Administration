@@ -43,3 +43,9 @@ If the process is not running, the script should start the process and log the e
 a timestamp to /var/log/process_monitor.log.--->
 sudo nano process_monitor.sh
 chmod +x process_monitor.sh
+
+<---Schedule this script to run every 5 minutes using a cron job--->
+sudo crontab -e
+
+<--- Inside Crontab File --->
+*/5 * * * * ~/process_monitor.sh
