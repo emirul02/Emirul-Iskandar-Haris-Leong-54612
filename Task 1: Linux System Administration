@@ -38,4 +38,8 @@ ls -la
 OUTPUT : -r-xr----- 1 root devops_group    0 Ogos 27 00:12 project.txt
 
 Process Management:
-<---Write a bash script process_monitor.sh that checks if a process (e.g., nginx) is running--->
+<---Write a bash script process_monitor.sh that checks if a process (e.g., nginx) is running
+If the process is not running, the script should start the process and log the event with
+a timestamp to /var/log/process_monitor.log.--->
+sudo nano process_monitor.sh
+chmod +x process_monitor.sh
