@@ -1,0 +1,10 @@
+Network Configuration:
+<---Configure a static IP address on a Linux machine using netplan or ifconfig/ip commands--->
+#Using IP
+# To check the network's device use by the machine
+ip a
+EXAMPLE --> 2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+
+sudo ip addr add <NEW IP ADDRESS> dev ens33
+#if wish to change the default gateway also
+sudo ip route add default via <NEW DEFAULT GATEWAY)
