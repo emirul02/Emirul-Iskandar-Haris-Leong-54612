@@ -10,5 +10,18 @@ sudo ip addr add <NEW IP ADDRESS> dev ens33
 sudo ip route add default via <NEW DEFAULT GATEWAY)
 
 Firewall Configuration:
-Set up a basic firewall using ufw or iptables
+<---Set up a basic firewall using ufw or iptables--->
 #Using ufw
+sudo apt install ufw
+
+<---Allow incoming SSH (port 22) and HTTP (port 80) traffic--->
+sudo ufw allow ssh
+sudo ufw allow http
+
+<---Deny all other incoming traffic--->
+sudo ufw default deny incoming
+
+<---Save the firewall rules so they persist after a reboot--->
+sudo ufw enable
+
+End Result : Firewall is active and enabled on system startup
