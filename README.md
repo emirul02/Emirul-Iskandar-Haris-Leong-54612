@@ -1,2 +1,9 @@
 # Emirul-Iskandar-Haris-Leong-54612
+
 DevOps Internship Assessment
+
+Thank you for the opportunity given. 
+
+Although it did take some time for me to complete some of the task (as I am learning as well, it was my first time doing Ansible), I did enjoyed the task given.
+
+Once again, Thank you.
