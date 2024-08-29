@@ -1,0 +1,52 @@
+---
+- name: Apache2 web server automation
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present # to check if apache has been installed or not
+      tags: [apache, install]
+
+    - name: Ensure Apache is running
+      service:
+        name: apache2
+        state: started #to check if apache has beenm started o
+        enabled: yes
+      tags: [apache, service]
+
+    - name: Create the HTML directory
+      file: #check if the dir already existed
+        path: /var/www/html
+        state: directory
+      tags: [apache, html]
+
+    - name: Deploy Devops Intern static page
+      copy:
+        content: |
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>Welcome</title>
+          </head>
+          <body>
+              <h1>Hello, DevOps Intern!</h1>
+              <h3>Created by Emirul Iskandar</h3>
+          </body>
+           </html>
+        dest: /var/www/html/index.html
+        mode: '0644' #file permission
+      tags: [apache, html]
+
+    - name: UFW allows traffic #ensuring any incoming traffic can access the website
+      ufw:
+        rule: allow
+        port: "80"
+        proto: tcp
+      when: ansible_os_family == "Debian"
+      tags: [firewall, apache]
+
+
+      #created host.ini (in the same dir) to point the target machine ip address
+      #make the target machine to be passwordless using SSH key pair
