@@ -48,4 +48,4 @@ chmod +x process_monitor.sh
 sudo crontab -e
 
 <--- Inside Crontab File --->
-*/5 * * * * ~/process_monitor.sh
+*/5 * * * * /home/ubuntu/process_monitor.sh
